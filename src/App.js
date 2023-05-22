@@ -7,7 +7,7 @@ const [postData, setPostData] = useState(null)
 
 const getPostData = async() => {
   try {
-    const response = await fetch('http://127.0.0.1:8000/api/v1/posts')
+    const response = await fetch('http://127.0.0.1:8000/api/v1/posts/')
 
     const data = await response.json()
     setPostData(data.data);
