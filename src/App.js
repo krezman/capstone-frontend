@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react'
-import Posts from './components/Posts';
+import Main from './components/Main';
 
 function App() {
 const [postData, setPostData] = useState(null)
@@ -25,7 +25,7 @@ useEffect(() => {
 
   return (
    <div>
-    <Posts postData={postData} />
+    <Main/>
    </div>
   );
 }
