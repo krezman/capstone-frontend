@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import {Route, Routes} from "react-router-dom";
 import Posts from "./Posts";
 import Register from "../pages/Register";
+import Login from "../pages/Login";
 import Home from "../pages/Home";
 
 
@@ -12,7 +13,7 @@ const Main = (props) => {
 
 const getPostData = async() => {
   try {
-    const response = await fetch(URI)
+    const response = await fetch(`${URI}posts/index`)
 
     const data = await response.json()
     setPostData(data.data);
@@ -23,6 +24,7 @@ const getPostData = async() => {
   }
 }
 
+
 const createAccount = async (person) => {
   await fetch(`${URI}users/register`, {
     method: "POST",
@@ -32,6 +34,16 @@ const createAccount = async (person) => {
     body: JSON.stringify(person)
   })
   getPostData()
+}
+
+const loginTo = async (person) => {
+  await fetch(`${URI}users/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(person)
+  })
 }
 
 const createPost = async (post) => {
@@ -63,6 +75,17 @@ const deletePost = async (id) => {
   getPostData()
 }
 
+// const postIndex = async (posts) => {
+//   await fetch(`${URI}/posts/index`, {
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify(posts)
+//   })
+//   getPostData()
+// }
+
 useEffect(() => {
   getPostData()
 }, [])
@@ -70,8 +93,12 @@ useEffect(() => {
 return (
 <main>
   <Routes>
+    <Route path="/posts/index" element=
+    {<Posts postData={postData} />}/>
     <Route path="/users/register" element=
     {<Register postData={postData} createAccount={createAccount}/>}/>
+    <Route path= "/users/login" element=
+    {<Login postData={postData} loginTo={loginTo}/>}/>
     <Route path="/" element={<Home />}/>
   </Routes>
 </main>

@@ -5,7 +5,7 @@ const Post = (props) => {
   return(
   <div>
     <h2>{props.post_owner.username}</h2>
-    <h2>{props.photo}</h2>
+    <img src={props.photo} alt={props.post_owner.username}/>
     <h2>{props.text}</h2>
   </div>
   )

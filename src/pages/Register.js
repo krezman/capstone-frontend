@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 
 const Register = (props) => {
   const nav = useNavigate()
@@ -34,13 +35,14 @@ const handleSubmit = (event) => {
   })
 }
 
-const getSelectedVal = () => {
-  let selectedVal = document.getElementById("dropDn").value
-  console.log(selectedVal)
-}
+// const getSelectedVal = () => {
+//   let selectedVal = document.getElementById("dropDn").value
+//   console.log(selectedVal)
+// }
 
 return(
   <div>
+    <Header />
     <form onSubmit={handleSubmit}>
       <input
       className="registerInput"
@@ -85,7 +87,7 @@ return(
       >
         <option>Choose you vendor Type</option>
         <option value="0">Planner</option>
-        <option value="2">Day-of-coordinator</option>
+        <option value="1">Day-of-coordinator</option>
         <option value="2">Food Caterning</option>
         <option value="3">DJ/Entertainment</option>
         <option value="4">Photography/Videography</option>
