@@ -4,12 +4,14 @@ import Posts from "./Posts";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
+import Profile from "../pages/Profile";
 
 
 const Main = (props) => {
   const URI = `${process.env.REACT_APP_API_URI}`
 
-  const [postData, setPostData] = useState(null)
+const [postData, setPostData] = useState(null)
+const [profileData, setProfileData] = useState(null)
 
 const getPostData = async() => {
   try {
@@ -19,6 +21,19 @@ const getPostData = async() => {
     setPostData(data.data);
     if (postData !== null)
     console.log(postData)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const getProfileData = async() => {
+  try {
+    const response = await fetch(`${URI}users/index`)
+
+    const data = await response.json()
+    setProfileData(data.data);
+    if (profileData !== null)
+    console.log(profileData)
   } catch (error) {
     console.log(error)
   }
@@ -75,18 +90,9 @@ const deletePost = async (id) => {
   getPostData()
 }
 
-// const postIndex = async (posts) => {
-//   await fetch(`${URI}/posts/index`, {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify(posts)
-//   })
-//   getPostData()
-// }
 
 useEffect(() => {
+  getProfileData()
   getPostData()
 }, [])
 
@@ -95,10 +101,16 @@ return (
   <Routes>
     <Route path="/posts/index" element=
     {<Posts postData={postData} />}/>
+
+    <Route path="/users/:id" element=
+    {<Profile profileData={profileData}/>}/>
+
     <Route path="/users/register" element=
     {<Register postData={postData} createAccount={createAccount}/>}/>
+
     <Route path= "/users/login" element=
     {<Login postData={postData} loginTo={loginTo}/>}/>
+
     <Route path="/" element={<Home />}/>
   </Routes>
 </main>
