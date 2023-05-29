@@ -9,7 +9,7 @@ const Header = () => {
           <h1>Your Day (LOGO)</h1>
         </div>
       </Link>
-      <Link to="users/register">
+      <Link to="/users/register">
         <div>
           <h1>Sign up</h1>
         </div>

@@ -5,6 +5,7 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
 import Profile from "../pages/Profile";
+import PostShow from "../pages/PostShow";
 
 
 const Main = (props) => {
@@ -101,6 +102,9 @@ return (
   <Routes>
     <Route path="/posts/index" element=
     {<Posts postData={postData} />}/>
+
+    <Route path="/posts/:id" element=
+    {<PostShow postData={postData}/>}/>
 
     <Route path="/users/:id" element=
     {<Profile profileData={profileData}/>}/>
