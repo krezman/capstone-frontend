@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useParams} from "react-router-dom";
 import Posts from "./Posts";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
@@ -9,9 +9,12 @@ import PostShow from "../pages/PostShow";
 
 
 const Main = (props) => {
-  const URI = `${process.env.REACT_APP_API_URI}`
+const URI = `${process.env.REACT_APP_API_URI}`
 
+
+const [user, setUser] = useState()
 const [postData, setPostData] = useState(null)
+const [onePostData, setOnePostData] = useState(null)
 const [profileData, setProfileData] = useState(null)
 
 const getPostData = async() => {
@@ -40,6 +43,21 @@ const getProfileData = async() => {
   }
 }
 
+const getOnePostData = async(id) => {
+  try {
+    const response = await fetch(`${URI}posts/${id}`)
+
+    const data = await response.json()
+    console.log(data.data, "Single Post Response")
+    // console.log("dataLOG", data)
+    setOnePostData(data.data);
+    if (onePostData !== null)
+    console.log(onePostData)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 
 const createAccount = async (person) => {
   await fetch(`${URI}users/register`, {
@@ -52,15 +70,6 @@ const createAccount = async (person) => {
   getPostData()
 }
 
-const loginTo = async (person) => {
-  await fetch(`${URI}users/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(person)
-  })
-}
 
 const createPost = async (post) => {
   await fetch(`${URI}/create`, {
@@ -95,7 +104,10 @@ const deletePost = async (id) => {
 useEffect(() => {
   getProfileData()
   getPostData()
+  getOnePostData()
 }, [])
+
+
 
 return (
 <main>
@@ -104,7 +116,7 @@ return (
     {<Posts postData={postData} />}/>
 
     <Route path="/posts/:id" element=
-    {<PostShow postData={postData}/>}/>
+    {<PostShow getOnePostData={getOnePostData} onePostData={onePostData}/>}/>
 
     <Route path="/users/:id" element=
     {<Profile profileData={profileData}/>}/>
@@ -113,9 +125,9 @@ return (
     {<Register postData={postData} createAccount={createAccount}/>}/>
 
     <Route path= "/users/login" element=
-    {<Login postData={postData} loginTo={loginTo}/>}/>
+    {<Login postData={postData} setUser={setUser}/>}/>
 
-    <Route path="/" element={<Home />}/>
+    <Route path="/" element={<Home user={user}/>}/>
   </Routes>
 </main>
 )

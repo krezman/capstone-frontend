@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import '../App.css'
 import { useParams, Link } from "react-router-dom";
 
 const PostShow = (props) => {
+  const [info, setInfo] = useState(null)
   const params = useParams()
   const id = parseInt(params.id)
-  const info = props.postData
-  const specifPost = info.find((post) => post.id === id)
-  console.log(specifPost)
+ 
+  
+  useEffect(() => {
+    const response = props.getOnePostData(id)
+    console.log(response)
+    setInfo(response)
+ }, [])
+
+ const specifPost = props.onePostData
+
+  // const specifPost = info.find((post) => post.id === id)
+  
+
+  
 
   return (
     <div>

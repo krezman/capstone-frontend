@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Post = (props) => {
   const date = props.date_created
-  console.log(typeof date)
+  // console.log(typeof date)
   return(
   <div>
     <Link to={`/users/${props.post_owner.id}`}>
