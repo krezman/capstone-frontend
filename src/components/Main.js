@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import Home from "../pages/Home";
 import Profile from "../pages/Profile";
 import PostShow from "../pages/PostShow";
+import Logout from "./Logout";
 
 
 const Main = (props) => {
@@ -107,6 +108,7 @@ useEffect(() => {
   getOnePostData()
 }, [])
 
+console.log(user)
 
 
 return (
@@ -116,7 +118,9 @@ return (
     {<Posts postData={postData} />}/>
 
     <Route path="/posts/:id" element=
-    {<PostShow getOnePostData={getOnePostData} onePostData={onePostData}/>}/>
+    {<PostShow getOnePostData={getOnePostData}
+    onePostData={onePostData}
+    user={user}/>}/>
 
     <Route path="/users/:id" element=
     {<Profile profileData={profileData}/>}/>
@@ -126,6 +130,9 @@ return (
 
     <Route path= "/users/login" element=
     {<Login postData={postData} setUser={setUser}/>}/>
+
+    <Route path= "/users/logout" element=
+    {<Logout setUser={setUser}/>}/>
 
     <Route path="/" element={<Home user={user}/>}/>
   </Routes>

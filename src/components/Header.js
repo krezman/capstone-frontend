@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
-import Register from "../pages/Register";
+
+import Logout from "./Logout";
 
 const Header = () => {
   return (
@@ -24,6 +25,7 @@ const Header = () => {
           <h1>Feed</h1>
         </div>
       </Link>
+      <Logout/>
     </nav>
   )
 }

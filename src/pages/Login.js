@@ -28,7 +28,6 @@ const Login = (props) => {
     .then((results) => {
       setSuccess(true);
       props.setUser(results.data.data)
-      console.log(results)
     })
     .catch((error) => {
       const fail = (error.response.data.message)
