@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {Route, Routes, useParams} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import Posts from "./Posts";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
@@ -7,6 +7,7 @@ import Home from "../pages/Home";
 import Profile from "../pages/Profile";
 import PostShow from "../pages/PostShow";
 import Logout from "./Logout";
+import PostCreate from "../pages/PostCreate";
 
 
 const Main = (props) => {
@@ -73,7 +74,7 @@ const createAccount = async (person) => {
 
 
 const createPost = async (post) => {
-  await fetch(`${URI}/create`, {
+  await fetch(`${URI}posts/create`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -117,6 +118,11 @@ return (
     <Route path="/posts/index" element=
     {<Posts postData={postData} />}/>
 
+    <Route path="/posts/create" element=
+    {<PostCreate
+    createPost={createPost}
+    user={user}/>}/>
+
     <Route path="/posts/:id" element=
     {<PostShow
     getOnePostData={getOnePostData}
@@ -129,7 +135,7 @@ return (
     {<Profile profileData={profileData}/>}/>
 
     <Route path="/users/register" element=
-    {<Register postData={postData} createAccount={createAccount}/>}/>
+    {<Register createAccount={createAccount}/>}/>
 
     <Route path= "/users/login" element=
     {<Login postData={postData} setUser={setUser}/>}/>

@@ -25,6 +25,11 @@ const Header = () => {
           <h1>Feed</h1>
         </div>
       </Link>
+      <Link to="/posts/create">
+        <div>
+          <h1>Create Post</h1>
+        </div>
+      </Link>
       <Logout/>
     </nav>
   )

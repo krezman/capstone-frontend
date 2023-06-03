@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import '../App.css'
 import { useParams, Link, useNavigate } from "react-router-dom";
-import Edit from "../components/Edit";
+
 
 
 
