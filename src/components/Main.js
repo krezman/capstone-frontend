@@ -84,7 +84,7 @@ const createPost = async (post) => {
 }
 
 const updatePost = async (post, id) => {
-  await fetch(URI + id, {
+  await fetch(`${URI}posts/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json"
@@ -95,7 +95,7 @@ const updatePost = async (post, id) => {
 }
 
 const deletePost = async (id) => {
-  await fetch(URI + id, {
+  await fetch(`${URI}posts/${id}`, {
     method: "DELETE"
   })
   getPostData()
@@ -118,8 +118,11 @@ return (
     {<Posts postData={postData} />}/>
 
     <Route path="/posts/:id" element=
-    {<PostShow getOnePostData={getOnePostData}
+    {<PostShow
+    getOnePostData={getOnePostData}
     onePostData={onePostData}
+    updatePost={updatePost}
+    deletePost={deletePost}
     user={user}/>}/>
 
     <Route path="/users/:id" element=
