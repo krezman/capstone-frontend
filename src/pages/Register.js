@@ -11,7 +11,7 @@ const Register = (props) => {
     vendor_name: "",
     vendor_type: "",
     location: "",
-    profilePhoto: "",
+    profile_photo: "",
     bio: ""
   })
 
@@ -22,7 +22,7 @@ const handleChange = (event) => {
 const handleSubmit = (event) => {
   event.preventDefault()
   props.createAccount(userInfo)
-  // nav('/')
+  nav('/')
   setUserInfo({
     username: "",
     email: "",
@@ -54,7 +54,7 @@ return(
       />
       <input
       className="registerInput"
-      type= "text"
+      type= "email"
       value= {userInfo.email}
       name= "email"
       placeholder="E-mail"
