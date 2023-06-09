@@ -37,41 +37,42 @@ const Login = (props) => {
 
 return(
   <>
-  <Header/>
-  <section>
+  <section className="login">
 
-  <form className="loginForm" onSubmit={handleSubmit}>
-    <div className="loginInputs">
+    <form className="loginForm" onSubmit={handleSubmit}>
+      <div className="loginInputs">
 
-  <input
-  className="loginInput"
-  name= "email"
-  required value={email} type="email" 
-  onChange={(e) => setEmail(e.target.value)}
-  placeholder="Email"/>
+        <input
+        className="loginInput"
+        name= "email"
+        required value={email} type="email" 
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Email"/>
 
-  <input
-  className="loginInput"
-  name= "password"
-  required value={password} type="password" 
-  onChange={(e) => setPassword(e.target.value)}
-  placeholder="Password"/>
+        <input
+        className="loginInput"
+        name= "password"
+        required value={password} type="password" 
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="Password"/>
 
-  </div>
-  <div className="loginInput">
-  <button className="loginButton" type="submit">LOGIN</button>
-  {success ? (
-          nav('/')
-        ) : (
-          
-          <p className="warnP"></p>
-        )}
-  {error ? <label className="loginErr">{error}</label>: null}
-        </div>
+      </div>
 
-         <p className="loginP"><span className="spanP">Don’t have an account? Create your profile</span> <Link className="registerLink" to="/users/register">Sign up</Link></p> 
-  
-  </form>
+
+      <div className="loginInput">
+        <button className="loginButton" type="submit">LOGIN</button>
+        {success ? (
+                nav('/')
+              ) : (
+                
+                <p className="warnP"></p>
+              )}
+        {error ? <label className="loginErr">{error}</label>: null}
+      </div>
+
+      <p className="loginP"><span className="spanP">Don’t have an account? Create your profile</span> <Link className="registerLink" to="/users/register">Sign up</Link></p> 
+    
+    </form>
   </section>
   </>
 )

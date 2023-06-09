@@ -35,7 +35,7 @@ const Logout = (props) => {
           nav('/')
         ) : (
           
-          <p className="warnP"></p>
+          null
         )}
     </form>
   )

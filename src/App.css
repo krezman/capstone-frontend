@@ -1,3 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+
 .App {
   text-align: center;
+}
+
+/* Nav Bar */
+
+/* https://i.imgur.com/DB5PFUc.png */
+.logo {
+  width: 450px;
+  height: auto;
+}
+
+.navMain {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-right: 20px;
+  margin-bottom: 2%;
+}
+
+.option {
+  text-decoration: none;
+}
+
+.topHomePhoto {
+  width: 800px;
+  height: auto;
+  float: right;
+}
+
+
+.loginForm {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10%;
+}
+
+input {
+  outline: 0;
+  border-width: 0 0 2px;
+  font-family: 'Comfortaa', cursive;
+}
+
+.loginInput {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Register Page */
+
+.regRight {
+  margin-bottom: -4px;
+}
+
+
+
+.regPhoto {
+  height: 700px;
+  width: auto;
+  margin-right: 20px;
+}
+
+.regPage {
+  display: flex;
+  justify-content: space-around;
+  margin-right: 5%;
+  font-family: 'Comfortaa', cursive;
+}
+
+.regBox {
+  display: flex;
+
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+;
+
+  
+  
+  min-height: 200px;
+  width: 50vw;
+  margin: 20px auto;
+  background: white;
+  border-radius: 0px;
+}
+
+
+.regForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.registerInput {
+  margin-bottom: 35px;
+  padding-right: 170px;
+}
+
+.regLabels {
+  font-size: 13px;
+}
+
+.registerInputz {
+  margin-bottom: 35px;
+  padding-right: 170px;
+}
+
+textarea {
+  resize: none;
+  height: 200px;
+  font-family: 'Comfortaa', cursive;
 }

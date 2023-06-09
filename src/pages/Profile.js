@@ -1,6 +1,7 @@
 import React from "react";
 import '../App.css'
 import { useParams } from "react-router-dom";
+import Post from "../components/Post";
 
 
 const Profile = (props) => {
@@ -44,6 +45,15 @@ const Profile = (props) => {
     <div>
       <img src={person.profile_photo} alt={person.username}/>
       <h3>{person.location}</h3>
+      
+
+      <div>
+      {props.postData.map((post) => {
+        if (post.post_owner.id === id) {
+        return <Post {...post} key={post.id} />
+      }
+      })}
+    </div>
     </div>
 
   </div>

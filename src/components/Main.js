@@ -8,6 +8,8 @@ import Profile from "../pages/Profile";
 import PostShow from "../pages/PostShow";
 import Logout from "./Logout";
 import PostCreate from "../pages/PostCreate";
+import '../App.css';
+import Header from "./Header";
 
 
 const Main = (props) => {
@@ -114,6 +116,7 @@ console.log(user)
 
 return (
 <main>
+  <Header user={user}/>
   <Routes>
     <Route path="/posts/index" element=
     {<Posts postData={postData} />}/>
@@ -132,7 +135,9 @@ return (
     user={user}/>}/>
 
     <Route path="/users/:id" element=
-    {<Profile profileData={profileData}/>}/>
+    {<Profile
+    profileData={profileData}
+    postData={postData}/>}/>
 
     <Route path="/users/register" element=
     {<Register createAccount={createAccount}/>}/>

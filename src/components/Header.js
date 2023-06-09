@@ -2,35 +2,69 @@ import { Link } from "react-router-dom"
 
 import Logout from "./Logout";
 
-const Header = () => {
+const Header = (props) => {
+  console.log(props)
   return (
+    
     <nav>
-      <Link to="/">
+      <div className="navMain">
+
+        
         <div>
-          <h1>Your Day (LOGO)</h1>
+          <Link to="/">
+              <img className="logo" src="https://i.imgur.com/Fj8TgeA.png" alt="Your Day Logo"/>
+          </Link>
         </div>
-      </Link>
-      <Link to="/users/register">
-        <div>
-          <h1>Sign up</h1>
-        </div>
-      </Link>
-      <Link to="/users/login">
-        <div>
-          <h1>Login</h1>
-        </div>
-      </Link>
-      <Link to="/posts/index">
-        <div>
-          <h1>Feed</h1>
-        </div>
-      </Link>
-      <Link to="/posts/create">
-        <div>
-          <h1>Create Post</h1>
-        </div>
-      </Link>
-      <Logout/>
+
+
+        {props.user ? 
+          null
+          : 
+          <div>
+              <Link className="option" to="/users/register">         
+                  <h1>Sign up</h1> 
+              </Link>
+            </div>
+          }
+          
+          {props.user ? 
+          null
+          : 
+            <div>
+              <Link className="option" to="/users/login">    
+                  <h1>Login</h1>      
+              </Link>
+            </div>
+          }
+          
+          {props.user ? 
+            <div>
+              <Link className="option" to="/posts/index">         
+                  <h1>Feed</h1>
+              </Link>
+            </div>
+          : null
+          }
+
+          {props.user ? 
+            <div>
+              <Link className="option" to="/posts/create">
+                  <h1>Create Post</h1>
+              </Link>
+            </div>
+          : null
+          }
+
+          {props.user ? 
+            <div>
+              <Logout/>
+            </div>
+          : null
+          }
+
+
+
+      </div>
     </nav>
   )
 }

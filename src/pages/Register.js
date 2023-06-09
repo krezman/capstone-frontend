@@ -40,89 +40,98 @@ const handleSubmit = (event) => {
 //   console.log(selectedVal)
 // }
 
+
 return(
-  <div>
-    <Header />
-    <form onSubmit={handleSubmit}>
-      <input
-      className="registerInput"
-      type= "text"
-      value= {userInfo.username}
-      name= "username"
-      placeholder="Username"
-      onChange={handleChange}
-      />
-      <input
-      className="registerInput"
-      type= "email"
-      value= {userInfo.email}
-      name= "email"
-      placeholder="E-mail"
-      onChange={handleChange}
-      />
-      <input
-      className="registerInput"
-      type= "text"
-      value= {userInfo.password}
-      name= "password"
-      placeholder="Password"
-      onChange={handleChange}
-      />
-      <input
-      className="registerInput"
-      type= "text"
-      value= {userInfo.vendor_name}
-      name= "vendor_name"
-      placeholder="Vendor Name"
-      onChange={handleChange}
-      />
+  <div className="regPage">
+    <div className="regBox">
+      <div className="regRight">
+        <img className="regPhoto" src="https://images.unsplash.com/photo-1606104218551-2c2ad1231dc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" alt="Florist"/>
+      </div>
 
-      <label>Vendor Type</label>
-      <select
-      id = "dropDn"
-      className="registerCkBox"
-      name="vendor_type"
-      value={userInfo.vendor_type}
-      onChange={handleChange}
-      >
-        <option>Choose you vendor Type</option>
-        <option value="0">Planner</option>
-        <option value="1">Day-of-coordinator</option>
-        <option value="2">Food Caterning</option>
-        <option value="3">DJ/Entertainment</option>
-        <option value="4">Photography/Videography</option>
-        <option value="5">Floral Design</option>
-        <option value="6">Officiant</option>
-      </select>
+      
+        <form className="regForm" onSubmit={handleSubmit}>
+          <label className="regLabels">Username</label>
+          <input
+          className="registerInputz"
+          type= "text"
+          value= {userInfo.username}
+          name= "username"
+          onChange={handleChange}
+          />
+          <input
+          className="registerInput"
+          type= "email"
+          value= {userInfo.email}
+          name= "email"
+          placeholder="E-mail"
+          onChange={handleChange}
+          />
+          <input
+          className="registerInput"
+          type= "text"
+          value= {userInfo.password}
+          name= "password"
+          placeholder="Password"
+          onChange={handleChange}
+          />
+          <input
+          className="registerInput"
+          type= "text"
+          value= {userInfo.vendor_name}
+          name= "vendor_name"
+          placeholder="Vendor Name"
+          onChange={handleChange}
+          />
 
-      <input
-      className="registerInput"
-      type= "text"
-      value= {userInfo.location}
-      name= "location"
-      placeholder="Location"
-      onChange={handleChange}
-      />
-      <input
-      className="registerInput"
-      type= "text"
-      value= {userInfo.profile_photo}
-      name= "profile_photo"
-      placeholder="Set Profile Photo with a URL"
-      onChange={handleChange}
-      />
-      <input
-      className="registerInput"
-      type= "text"
-      value= {userInfo.bio}
-      name= "bio"
-      placeholder="Tell us about what you do!"
-      onChange={handleChange}
-      />
+          <label className="regLabels">Vendor Type</label>
+          <select
+          id = "dropDn"
+          className="registerInput"
+          name="vendor_type"
+          value={userInfo.vendor_type}
+          onChange={handleChange}
+          >
+            <option>Choose you vendor Type</option>
+            <option value="0">Planner</option>
+            <option value="1">Day-of-coordinator</option>
+            <option value="2">Food Caterning</option>
+            <option value="3">DJ/Entertainment</option>
+            <option value="4">Photography/Videography</option>
+            <option value="5">Floral Design</option>
+            <option value="6">Officiant</option>
+          </select>
 
-      <button className="signUpBtn" type="submit">Sign Up</button>
+          <input
+          className="registerInput"
+          type= "text"
+          value= {userInfo.location}
+          name= "location"
+          placeholder="Location"
+          onChange={handleChange}
+          />
+          <input
+          className="registerInput"
+          type= "text"
+          value= {userInfo.profile_photo}
+          name= "profile_photo"
+          placeholder="Set Profile Photo with a URL"
+          onChange={handleChange}
+          />
+          <label>Bio</label>
+          <textarea
+          className="registerInput"
+          type= "text"
+          value= {userInfo.bio}
+          name= "bio"
+          placeholder="Tell us about what you do!"
+          onChange={handleChange}
+          />
 
-    </form>
+          <button className="signUpBtn" type="submit">Sign Up</button>
+
+        </form>
+      
+    </div>
   </div>
 )
 
