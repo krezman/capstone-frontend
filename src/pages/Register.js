@@ -1,9 +1,31 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Header from "../components/Header";
+import { TextField, Button } from "@mui/material";
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import FormControl from '@mui/material/FormControl';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+
+
+
+
 
 const Register = (props) => {
   const nav = useNavigate()
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   const [userInfo, setUserInfo] = useState({
     username: "",
     email: "",
@@ -35,104 +57,143 @@ const handleSubmit = (event) => {
   })
 }
 
-// const getSelectedVal = () => {
-//   let selectedVal = document.getElementById("dropDn").value
-//   console.log(selectedVal)
-// }
 
 
 return(
-  <div className="regPage">
-    <div className="regBox">
-      <div className="regRight">
-        <img className="regPhoto" src="https://images.unsplash.com/photo-1606104218551-2c2ad1231dc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" alt="Florist"/>
-      </div>
+    <div className="regPage">
+      <div className="regBox">
+        <div className="regRight">
+          <img className="regPhoto" src="https://images.unsplash.com/photo-1606104218551-2c2ad1231dc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" alt="Florist"/>
+        </div>
 
-      
-        <form className="regForm" onSubmit={handleSubmit}>
-          <label className="regLabels">Username</label>
-          <input
-          className="registerInputz"
-          type= "text"
-          value= {userInfo.username}
-          name= "username"
-          onChange={handleChange}
-          />
-          <input
-          className="registerInput"
-          type= "email"
-          value= {userInfo.email}
-          name= "email"
-          placeholder="E-mail"
-          onChange={handleChange}
-          />
-          <input
-          className="registerInput"
-          type= "text"
-          value= {userInfo.password}
-          name= "password"
-          placeholder="Password"
-          onChange={handleChange}
-          />
-          <input
-          className="registerInput"
-          type= "text"
-          value= {userInfo.vendor_name}
-          name= "vendor_name"
-          placeholder="Vendor Name"
-          onChange={handleChange}
-          />
+        
+          <form className="regForm" onSubmit={handleSubmit}>
+            
+            <TextField
+            id="outlined-basic"
+            label="Username"
+            sx = {{color: "main"}}
+            margin= "normal"
+            variant="outlined"
+            value= {userInfo.username}
+            name= "username"
+            onChange={handleChange}
+            />
 
-          <label className="regLabels">Vendor Type</label>
-          <select
-          id = "dropDn"
-          className="registerInput"
-          name="vendor_type"
-          value={userInfo.vendor_type}
-          onChange={handleChange}
+            <TextField
+            id = "outlined-basic"
+            sx = {{color: "main"}}
+            margin= "normal"
+            variant="outlined"
+            value= {userInfo.email}
+            name= "email"
+            label="E-mail"
+            onChange={handleChange}
+            />
+
+           <FormControl variant="outlined">
+            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+              <OutlinedInput
+                value={userInfo.password}
+                name= "password"
+                onChange={handleChange}
+                id="outlined-adornment-password"
+                type={showPassword ? 'text' : 'password'}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Password"
+              />
+            </FormControl>
+
+
+            <TextField
+            id = "outlined-basic"
+            sx = {{color: "main"}}
+            margin= "normal"
+            variant="outlined"
+            value= {userInfo.vendor_name}
+            name= "vendor_name"
+            label="Vendor Name"
+            onChange={handleChange}
+            />
+
+
+
+        <FormControl>
+        <InputLabel id="demo-simple-select-helper-label">Vendor Type</InputLabel>
+          <Select
+            value={userInfo.vendor_type}
+            label="Vendor Type"
+            onChange={handleChange}
+            name= "vendor_type"
           >
-            <option>Choose you vendor Type</option>
-            <option value="0">Planner</option>
-            <option value="1">Day-of-coordinator</option>
-            <option value="2">Food Caterning</option>
-            <option value="3">DJ/Entertainment</option>
-            <option value="4">Photography/Videography</option>
-            <option value="5">Floral Design</option>
-            <option value="6">Officiant</option>
-          </select>
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            <MenuItem value={0}>Planner</MenuItem>
+            <MenuItem value={1}>Day-of-Coordinator</MenuItem>
+            <MenuItem value={2}>Food Catering</MenuItem>
+            <MenuItem value={3}>DJ/Entertainment</MenuItem>
+            <MenuItem value={4}>Photography/Videography</MenuItem>
+            <MenuItem value={5}>Floral Design</MenuItem>
+            <MenuItem value={6}>Officiant</MenuItem>
+          </Select>
+        </FormControl>
 
-          <input
-          className="registerInput"
-          type= "text"
-          value= {userInfo.location}
-          name= "location"
-          placeholder="Location"
-          onChange={handleChange}
-          />
-          <input
-          className="registerInput"
-          type= "text"
-          value= {userInfo.profile_photo}
-          name= "profile_photo"
-          placeholder="Set Profile Photo with a URL"
-          onChange={handleChange}
-          />
-          <label>Bio</label>
-          <textarea
-          className="registerInput"
-          type= "text"
-          value= {userInfo.bio}
-          name= "bio"
-          placeholder="Tell us about what you do!"
-          onChange={handleChange}
-          />
 
-          <button className="signUpBtn" type="submit">Sign Up</button>
 
-        </form>
-      
+            <TextField
+            id = "outlined-basic"
+            sx = {{color: "main"}}
+            margin= "normal"
+            variant="outlined"
+            value= {userInfo.location}
+            name= "location"
+            label="Location"
+            onChange={handleChange}
+            />
+
+            <TextField
+            id = "outlined-basic"
+            sx = {{color: "main"}}
+            margin= "normal"
+            variant="outlined"
+            value= {userInfo.profile_photo}
+            name= "profile_photo"
+            label="Profile Photo URL"
+            onChange={handleChange}
+            />
+
+            <TextField
+            id = "outlined-multiline-flexible"
+            sx = {{color: "main"}}
+            margin= "normal"
+            variant="outlined"
+            maxRows={4}
+            multiline
+            value= {userInfo.bio}
+            name= "bio"
+            label="Bio"
+            placeholder="Tell us what you do!"
+            onChange={handleChange}
+            />
+
+<Button variant="contained" type="submit">Sign Up</Button>
+
+          </form>
+        
+      </div>
     </div>
-  </div>
 )
 
 }

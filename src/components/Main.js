@@ -10,9 +10,20 @@ import Logout from "./Logout";
 import PostCreate from "../pages/PostCreate";
 import '../App.css';
 import Header from "./Header";
+import { green } from "@mui/material/colors";
+import { ThemeProvider, createTheme } from '@mui/material';
 
 
 const Main = (props) => {
+  const theme =createTheme({
+    palette: {
+      primary: {
+        main: green[300]
+      }
+    }
+  })
+
+
 const URI = `${process.env.REACT_APP_API_URI}`
 
 
@@ -115,42 +126,44 @@ console.log(user)
 
 
 return (
-<main>
-  <Header user={user}/>
-  <Routes>
-    <Route path="/posts/index" element=
-    {<Posts postData={postData} />}/>
+<ThemeProvider theme={theme}>
+  <main>
+    <Header user={user}/>
+    <Routes>
+      <Route path="/posts/index" element=
+      {<Posts postData={postData} />}/>
 
-    <Route path="/posts/create" element=
-    {<PostCreate
-    createPost={createPost}
-    user={user}/>}/>
+      <Route path="/posts/create" element=
+      {<PostCreate
+      createPost={createPost}
+      user={user}/>}/>
 
-    <Route path="/posts/:id" element=
-    {<PostShow
-    getOnePostData={getOnePostData}
-    onePostData={onePostData}
-    updatePost={updatePost}
-    deletePost={deletePost}
-    user={user}/>}/>
+      <Route path="/posts/:id" element=
+      {<PostShow
+      getOnePostData={getOnePostData}
+      onePostData={onePostData}
+      updatePost={updatePost}
+      deletePost={deletePost}
+      user={user}/>}/>
 
-    <Route path="/users/:id" element=
-    {<Profile
-    profileData={profileData}
-    postData={postData}/>}/>
+      <Route path="/users/:id" element=
+      {<Profile
+      profileData={profileData}
+      postData={postData}/>}/>
 
-    <Route path="/users/register" element=
-    {<Register createAccount={createAccount}/>}/>
+      <Route path="/users/register" element=
+      {<Register createAccount={createAccount}/>}/>
 
-    <Route path= "/users/login" element=
-    {<Login postData={postData} setUser={setUser}/>}/>
+      <Route path= "/users/login" element=
+      {<Login postData={postData} setUser={setUser}/>}/>
 
-    <Route path= "/users/logout" element=
-    {<Logout setUser={setUser}/>}/>
+      <Route path= "/users/logout" element=
+      {<Logout setUser={setUser}/>}/>
 
-    <Route path="/" element={<Home user={user}/>}/>
-  </Routes>
-</main>
+      <Route path="/" element={<Home user={user}/>}/>
+    </Routes>
+  </main>
+</ThemeProvider>
 )
 
 }

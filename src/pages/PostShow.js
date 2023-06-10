@@ -55,7 +55,7 @@ const PostShow = (props) => {
     };
   
     await props.updatePost(payload, id);
-    nav(`/posts/${id}`);
+    nav(`/users/${props.user.id}`)
   };
 
 
