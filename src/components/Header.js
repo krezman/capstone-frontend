@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import Logout from "./Logout";
 
 const Header = (props) => {
-  console.log(props)
   return (
     
     <nav>
@@ -50,6 +49,15 @@ const Header = (props) => {
             <div>
               <Link className="option" to="/posts/create">
                   <h1>Create Post</h1>
+              </Link>
+            </div>
+          : null
+          }
+
+          {props.user ? 
+            <div>
+              <Link className="option" to={`users/${props.user.id}`}>
+                  <h1>Profile</h1>
               </Link>
             </div>
           : null

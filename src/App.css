@@ -3,6 +3,7 @@
 
 .App {
   text-align: center;
+  background-color: #F1F1E4;
 }
 
 /* Nav Bar */
@@ -23,6 +24,7 @@
 
 .option {
   text-decoration: none;
+  font-family: 'Comfortaa', cursive;
 }
 
 .topHomePhoto {
@@ -31,11 +33,10 @@
   float: right;
 }
 
+/* login Page */
 .login {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  justify-content: space-between;
 
   box-shadow:
   0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -48,18 +49,15 @@
 
   
   
-  min-height: 200px;
-  width: 50vw;
-  margin: 20px auto;
+  width: 55%;
   background: white;
   border-radius: 0px;
+  margin: 5px auto;
 }
 
-.logRight {
-  margin-bottom: -3px;
-}
 
 .logPhoto {
+  display: flex;
   height: 700px;
   width: auto;
   margin-right: 20px;
@@ -89,10 +87,6 @@
   width: 90%;
 }
 
-.loginP {
-
-}
-
 .registerLink {
   text-decoration: none;
   color: #F29559;
@@ -100,17 +94,10 @@
 
 
 /* Register Page */
-
-.regRight {
-  margin-bottom: -4px;
-}
-
-
-
 .regPhoto {
-  height: 700px;
+  display: flex;
+  height: 730px;
   width: auto;
-  margin-right: 20px;
 }
 
 .regPage {
@@ -122,6 +109,7 @@
 
 .regBox {
   display: flex;
+  justify-content: space-between;
 
   box-shadow:
   0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -135,8 +123,8 @@
   
   
   min-height: 200px;
-  width: 50vw;
-  margin: 20px auto;
+  width: 55vw;
+  margin: 10px auto;
   background: white;
   border-radius: 0px;
 }
@@ -145,14 +133,122 @@
 .regForm {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
-  width: 35%;
+  width: 40%;
+  margin-right: 3%;
 }
 
+.regBtn {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
-textarea {
-  resize: none;
-  height: 200px;
-  width: 170px;
+.registerErr {
+  color: #F29559
+}
+
+/* Create Post Page */
+.createPost {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   font-family: 'Comfortaa', cursive;
+
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+;
+
+  
+  
+  width: 75%;
+  background: white;
+  border-radius: 0px;
+  margin: 10px auto;
+  margin-top: 10%;
+}
+
+.postingLeft {
+  display: flex;
+  height: 400px;
+  width: auto;
+}
+
+.postingForm {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5%;
+}
+
+/* Post Index */
+.postImg {
+  height: 400px;
+  width: 400px;
+}
+
+/* Post Show Page */
+.postShowBox {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Comfortaa', cursive;
+  width: 100%;
+  align-items: center;
+}
+
+.postShowUser {
+  display: flex;
+  width: 50%
+}
+
+.postImgShow {
+  max-width: 50%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.text {
+  width: 50%;
+}
+
+.postShowText {
+  display: flex;
+  justify-content: center;
+}
+
+.postEdit {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.editBtn {
+  float: left;
+}
+
+.postEditForm {
+  display: flex;
+  margin-left: 25%;
+  width: 100%;
+}
+
+.editForm {
+  width: 65%;
+}
+
+.editInputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.editPageBtns {
+  display: flex;
+  justify-content: space-between;
 }

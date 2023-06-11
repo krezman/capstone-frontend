@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { TextField, Button } from "@mui/material";
+import { CheckCircle } from "@mui/icons-material";
 
 
 const PostCreate = (props) => {
@@ -28,27 +30,43 @@ const PostCreate = (props) => {
 
 
   return (
-    <div>
+    <div className="createPost">
 
-      <form onSubmit={handleSubmit}>
-        <input
-        className="postInput"
-        type= "text"
-        value= {postInfo.photo}
-        name= "photo"
-        placeholder="Photo URL Here"
-        onChange={handleChange}
-        />
-        <input
-        className="postInput"
-        type= "text"
-        value= {postInfo.text}
-        name= "text"
-        placeholder="What do you want to say about this post?"
-        onChange={handleChange}
-        />
+      <div className="postingLeft">
+        <img src="https://images.unsplash.com/photo-1473413896661-b611b2098a19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvdG9ncmFwaGVyJTIwbGVuc3xlbnwwfHwwfHx8Mg%3D%3D&auto=format&fit=crop&w=500&q=60" alt= "Post page Image" />
+      </div>
 
-        <button className="signUpBtn" type="submit">Publish Post</button>
+      <form className="postingForm" onSubmit={handleSubmit}>
+
+        <h2>What do you want to post for {props.user.vendor_name}?</h2>
+
+        <TextField
+          id="outlined-basic"
+          label="Photo URL"
+          sx = {{color: "main"}}
+          margin= "normal"
+          variant="outlined"
+          value= {postInfo.photo}
+          name= "photo"
+          onChange={handleChange}
+          />
+
+
+        <TextField
+          id="outlined-basic"
+          label="Text"
+          placeholder="What do you want to say about this post?"
+          sx = {{color: "main"}}
+          margin= "normal"
+          variant="outlined"
+          value= {postInfo.text}
+          name= "text"
+          onChange={handleChange}
+          />
+
+<Button variant="contained" type="submit">Publish Post
+  <CheckCircle/>
+</Button>
 
       </form>
     </div>

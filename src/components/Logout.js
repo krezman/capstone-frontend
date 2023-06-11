@@ -4,7 +4,6 @@ import axios from "axios";
 
 const Logout = (props) => {
   const nav = useNavigate()
-  const [success, setSuccess] = useState(false)
   const URI = `${process.env.REACT_APP_API_URI}`
 
 
@@ -15,11 +14,13 @@ const Logout = (props) => {
       method: "GET",
       url: `${URI}users/logout`,
     }
+    nav('/')
 
     axios(config)
     .then((results) => {
-      setSuccess(true);
-      props.setUser(results)
+      console.log(results)
+      props.setUser(results.data)
+
     })
     .catch((error) => {
       console.log(error)
@@ -30,13 +31,6 @@ const Logout = (props) => {
     <form className="loginForm" onSubmit={handleSubmit}>
     <button className="loginButton" type="submit">LOGOUT</button>
 
-
-    {success ? (
-          nav('/')
-        ) : (
-          
-          null
-        )}
     </form>
   )
 }

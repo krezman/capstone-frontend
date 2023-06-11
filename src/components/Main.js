@@ -10,7 +10,7 @@ import Logout from "./Logout";
 import PostCreate from "../pages/PostCreate";
 import '../App.css';
 import Header from "./Header";
-import { green } from "@mui/material/colors";
+import { green, red } from "@mui/material/colors";
 import { ThemeProvider, createTheme } from '@mui/material';
 
 
@@ -19,7 +19,16 @@ const Main = (props) => {
     palette: {
       primary: {
         main: green[300]
+      },
+      secondary: {
+        main: red[600]
       }
+    },
+    typography: {
+      fontFamily: [
+        'Comfortaa',
+        'cursive',
+      ].join(','),
     }
   })
 
@@ -71,18 +80,6 @@ const getOnePostData = async(id) => {
   } catch (error) {
     console.log(error)
   }
-}
-
-
-const createAccount = async (person) => {
-  await fetch(`${URI}users/register`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(person)
-  })
-  getPostData()
 }
 
 
@@ -152,7 +149,7 @@ return (
       postData={postData}/>}/>
 
       <Route path="/users/register" element=
-      {<Register createAccount={createAccount}/>}/>
+      {<Register setUser={setUser}/>}/>
 
       <Route path= "/users/login" element=
       {<Login postData={postData} setUser={setUser}/>}/>

@@ -11,7 +11,7 @@ const Post = (props) => {
       <h2>{props.post_owner.username}</h2>
     </Link>
     <Link to={`/posts/${props.id}`}>
-      <img src={props.photo} alt={props.post_owner.username}/>
+      <img className="postImg" src={props.photo} alt={props.post_owner.username}/>
     </Link>
     <p>{date}</p>
   </div>

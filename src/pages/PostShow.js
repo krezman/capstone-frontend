@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import '../App.css'
 import { useParams, Link, useNavigate } from "react-router-dom";
-
-
-
-
-
+import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
+import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
+import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
+import { Button, TextField } from "@mui/material";
 
 
 const PostShow = (props) => {
@@ -61,7 +60,9 @@ const PostShow = (props) => {
 
 
    const removePost = (event) => {
+    console.log("YOU HIT THE REMOVE POST FUNCTION")
     event.preventDefault()
+    event.stopPropagation();
     props.deletePost(specifPost.id)
     nav('/posts/index')
    };
@@ -75,53 +76,92 @@ const PostShow = (props) => {
 
 if ((specifPost && props.user !== null) && (specifPost.post_owner.id === props.user.id)) {
   return(
-    <section>
+    <section className="postShowPage">
 
-      <div>
-        <Link to={`/users/${specifPost.post_owner.id}`}>
-          <h2>{specifPost.post_owner.username}</h2>
-        </Link>
-        <img src={specifPost.photo} alt={specifPost.post_owner.username}/>
-        <h3>{specifPost.text}</h3>
-        <p>{specifPost.date_created}</p>
+      <div className="postShowBox">
+        <div className="postShowUser">
+          <Link to={`/users/${specifPost.post_owner.id}`}>
+            <h2>{specifPost.post_owner.username}</h2>
+          </Link>
+        </div>
+
+        <img className="postImgShow" src={specifPost.photo} alt={specifPost.post_owner.username}/>
+
+        <div className="text">
+          <div className="postShowText">
+            <h2>{specifPost.text}</h2>
+          </div>
+        </div>
+        {/* <p>{specifPost.date_created}</p> */}
       </div>
 
-      {toggle ? (
-        <div>
-          <form onSubmit={handleSubmit}>
-            <input
-            type="text"
-            value={editForm.photo}
-            name="photo"
-            placeholder={specifPost.photo}
-            onChange={handleChange}
-            />
-            <input
-            type="text"
-            value={editForm.text}
-            name="text"
-            placeholder={specifPost.text}
-            onChange={handleChange}
-            />
-            <div>
-              <button type="submit">Publish Edit</button>
-              <button onClick={removePost}>Delete Post</button>
+      <div className="postEdit">
+        
+          {toggle ? (
+            <div className="postEditForm">
+              <form className="editForm" onSubmit={handleSubmit}>
+
+                <div className="editInputs">
+                  <TextField
+                    id = "outlined-basic"
+                    sx = {{color: "main"}}
+                    margin= "normal"
+                    variant="outlined"
+                    value= {editForm.photo}
+                    placeholder={specifPost.photo}
+                    label="Photo URL"
+                    name="photo"
+                    onChange={handleChange}
+                    />
+
+                  <TextField
+                    id = "outlined-basic"
+                    sx = {{color: "main"}}
+                    margin= "normal"
+                    variant="outlined"
+                    maxRows={4}
+                    multiline
+                    value= {editForm.text}
+                    placeholder={specifPost.text}
+                    label="Text"
+                    name="text"
+                    onChange={handleChange}
+                    />
+                </div>
+
+                <div className="editPageBtns">
+                  <Button variant="contained" type="submit">Publish Edits <PublishedWithChangesIcon/>
+                  </Button>
+                  <Button color="secondary" variant="contained" onClick={(event) => {event.preventDefault();if (window.confirm("Are you sure you want to delete this post?")) {removePost(event);}}}>Delete Post <DeleteForeverRoundedIcon/>
+                  </Button>
+                </div>
+                
+              </form>
             </div>
-          </form>
-        </div>
-      ) : (<button onClick={handleToggle}>Edit Post</button>)}
+          ) : (<Button classname="editBtn" variant="contained" onClick={handleToggle}>Edit Post <EditTwoToneIcon/>
+        </Button>)}
+      
+    </div>
 
     </section>
   )
 } else if (specifPost && props.user !== null) {
   return (
-    <div>
-      <Link to={`/users/${specifPost.post_owner.id}`}>
-        <h2>{specifPost.post_owner.username}</h2>
-      </Link>
-      <img src={specifPost.photo} alt={specifPost.post_owner.username}/>
-      <h3>{specifPost.text}</h3>
-      <p>{specifPost.date_created}</p>
+    <div className="postShowBox">
+      <div className="postShowUser">
+        <Link to={`/users/${specifPost.post_owner.id}`}>
+          <h2>{specifPost.post_owner.username}</h2>
+        </Link>
+      </div>
+
+      <img className="postImgShow" src={specifPost.photo} alt={specifPost.post_owner.username}/>
+
+      <div className="text">
+        <div className="postShowText">
+          <h3>{specifPost.text}</h3>
+        </div>
+      </div>
+      {/* <p>{specifPost.date_created}</p> */}
     </div>
   )
   }

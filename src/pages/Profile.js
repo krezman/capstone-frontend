@@ -9,6 +9,7 @@ const Profile = (props) => {
   const id = parseInt(params.id)
   const prof = props.profileData
   const person = prof.find((user) => user.id === id)
+  console.log(person)
   
   
 
@@ -34,6 +35,10 @@ const Profile = (props) => {
     person.vendor_type = "Officiant"
   }
 
+  if (!person) {
+    return ( <h1>Just a second while the profile loads....</h1>)
+  } else {
+
   return(
   <div>
 
@@ -58,6 +63,7 @@ const Profile = (props) => {
 
   </div>
   )
+    }
 }
 
 export default Profile;
