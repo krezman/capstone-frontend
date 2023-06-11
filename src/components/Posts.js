@@ -14,7 +14,7 @@ const loaded = (postData) => {
   }
 
   return (
-    <div>
+    <div className="indexMain">
       {postData.map((post) => {
         return <Post {...post} key={post.id} />
       })}
@@ -25,7 +25,7 @@ const loaded = (postData) => {
 const Posts = ({postData}) => {
    
   return (
-    <div>
+    <div className="posts">
       {postData !== null ? loaded(postData) : loading()}
     </div>
   )

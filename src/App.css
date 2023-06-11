@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
-
-.App {
-  text-align: center;
-  background-color: #F1F1E4;
+main {
+  background-color: #f1f1e4;
+  height: 100%;
 }
+
 
 /* Nav Bar */
 
@@ -14,12 +14,14 @@
   height: auto;
 }
 
+nav {
+  background-color: white;
+}
+
 .navMain {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 30px;
-  margin-bottom: 2%;
 }
 
 .option {
@@ -34,6 +36,10 @@
 }
 
 /* login Page */
+.loginBody {
+  height: 100%;
+}
+
 .login {
   display: flex;
   flex-direction: row;
@@ -52,7 +58,7 @@
   width: 55%;
   background: white;
   border-radius: 0px;
-  margin: 5px auto;
+  margin: 5% auto;
 }
 
 
@@ -102,9 +108,13 @@
 
 .regPage {
   display: flex;
-  justify-content: space-around;
-  margin-right: 5%;
+  flex-direction: column;
   font-family: 'Comfortaa', cursive;
+}
+
+.regHeader {
+  text-align: center;
+  font-size: 30px;
 }
 
 .regBox {
@@ -124,7 +134,8 @@
   
   min-height: 200px;
   width: 55vw;
-  margin: 10px auto;
+  margin: 5% auto;
+  margin-top: .5%;
   background: white;
   border-radius: 0px;
 }
@@ -133,12 +144,14 @@
 .regForm {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 40%;
   margin-right: 3%;
+  margin-top: 1%;
 }
 
 .regBtn {
-  margin-top: 20px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -188,8 +201,44 @@
 
 /* Post Index */
 .postImg {
-  height: 400px;
-  width: 400px;
+  height: 300px;
+  width: 300px;
+  box-shadow: 1px 2px 8px 2px #bfbdbd;
+  border-radius: 20px;
+}
+
+.postImg:hover {
+  opacity: .6;
+}
+
+.indexMain {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 5%;
+  margin-top: 2%;
+}
+
+.posts{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.indexLink{
+  font-family: 'Comfortaa', cursive;
+  color: rgb(247, 245, 245);
+  text-decoration: none;
+  position: relative;
+  bottom: 80px;
+  right: 30%;
+  font-size: 25px;
+}
+
+.indexLink:hover{
+  color: black;
+  font-size: 25px;
 }
 
 /* Post Show Page */
@@ -251,4 +300,52 @@
 .editPageBtns {
   display: flex;
   justify-content: space-between;
+}
+
+/* Profile Page */
+.profileBody {
+  background-color: #f1f1e4;
+  margin: 0;
+}
+
+.profileTop {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Comfortaa', cursive;
+
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+;
+
+  
+  
+  width: 90%;
+  background: white;
+  border-radius: 20px;
+  margin: 5% auto;
+}
+
+.profileLeft {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10%;
+  margin-left: 5%;
+}
+
+.profileRight {
+  font-size: 20px;
+}
+
+.profilePostsTitle {
+  margin-left: 5%;
+  font-family: 'Comfortaa', cursive;
+}
+
+.profilePosts {
+  margin: 5% auto;
 }

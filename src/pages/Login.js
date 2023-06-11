@@ -54,7 +54,7 @@ const Login = (props) => {
   }
 
 return(
-  <>
+  <div className="loginBody">
   <section className="login">
 
     <div className="logRight">
@@ -125,7 +125,7 @@ return(
     
     </form>
   </section>
-  </>
+  </div>
 )
 }
 

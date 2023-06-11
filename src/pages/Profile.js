@@ -1,7 +1,7 @@
 import React from "react";
 import '../App.css'
 import { useParams } from "react-router-dom";
-import Post from "../components/Post";
+import ProfilePosts from "../components/ProfilePosts";
 
 
 const Profile = (props) => {
@@ -9,7 +9,6 @@ const Profile = (props) => {
   const id = parseInt(params.id)
   const prof = props.profileData
   const person = prof.find((user) => user.id === id)
-  console.log(person)
   
   
 
@@ -40,26 +39,37 @@ const Profile = (props) => {
   } else {
 
   return(
-  <div>
+  <div className="profileBody">
 
-    <div>
-      <h1>{person.vendor_name}</h1>
-      <h3>{person.vendor_type}</h3>
-      <p>{person.bio}</p>
-    </div>
-    <div>
-      <img src={person.profile_photo} alt={person.username}/>
-      <h3>{person.location}</h3>
-      
+    <div className="profileTop">
+      <div className="profileLeft">
+        <h1>{person.vendor_name}</h1>
+        <img src={person.profile_photo} alt={person.username}/>
+        <div>
+          <h3>Location:</h3>
+          <h2>{person.location}</h2>
+          <h3>Type of Vendor:</h3>
+          <h2>{person.vendor_type}</h2>
+        </div>
+      </div>
 
-      <div>
-      {props.postData.map((post) => {
-        if (post.post_owner.id === id) {
-        return <Post {...post} key={post.id} />
-      }
-      })}
+      <div className="profileRight">
+        <h3>Biography</h3>
+        <p>{person.bio}</p>
+      </div>
     </div>
+
+    <h1 className="profilePostsTitle">Posts by {person.vendor_name}</h1>
+
+    <div className="indexMain">
+        {props.postData.map((post) => {
+          if (post.post_owner.id === id) {
+          return <ProfilePosts {...post} key={post.id} />
+        }
+        })}
     </div>
+
+    
 
   </div>
   )

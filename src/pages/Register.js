@@ -78,6 +78,7 @@ const Register = (props) => {
 
 return(
     <div className="regPage">
+      <h2 className="regHeader">Please fill out this form to begin making and viewing content.</h2>
       <div className="regBox">
         <div className="regRight">
           <img className="regPhoto" src="https://images.unsplash.com/photo-1606104218551-2c2ad1231dc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" alt="Florist"/>
@@ -90,7 +91,6 @@ return(
             id="outlined-basic"
             label="Username"
             sx = {{color: "main"}}
-            margin= "normal"
             variant="outlined"
             value= {username}
             name= "username"
@@ -100,7 +100,6 @@ return(
             <TextField
             id = "outlined-basic"
             sx = {{color: "main"}}
-            margin= "normal"
             variant="outlined"
             value= {email}
             name= "email"
@@ -136,7 +135,6 @@ return(
             <TextField
             id = "outlined-basic"
             sx = {{color: "main"}}
-            margin= "normal"
             variant="outlined"
             value= {vendor_name}
             name= "vendor_name"
@@ -172,7 +170,6 @@ return(
             <TextField
             id = "outlined-basic"
             sx = {{color: "main"}}
-            margin= "normal"
             variant="outlined"
             value= {location}
             name= "location"
@@ -183,7 +180,6 @@ return(
             <TextField
             id = "outlined-basic"
             sx = {{color: "main"}}
-            margin= "normal"
             variant="outlined"
             value= {profile_photo}
             name= "profile_photo"
@@ -194,7 +190,6 @@ return(
             <TextField
             id = "outlined-multiline-flexible"
             sx = {{color: "main"}}
-            margin= "normal"
             variant="outlined"
             maxRows={4}
             multiline
