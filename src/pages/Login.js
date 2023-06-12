@@ -9,6 +9,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
+import Footer from "../components/Footer";
 
 
 
@@ -54,77 +55,81 @@ const Login = (props) => {
   }
 
 return(
-  <div className="login">
+  <>
+    <div className="login">
 
-    <div className="logRight">
-      <img className="logPhoto" src="https://images.unsplash.com/photo-1666305132656-097bd699e023?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Wedding Planning"/>
-    </div>
-
-    
-
-    <form className="loginForm" onSubmit={handleSubmit}>
-      <div className="loginInputs">
-
-        <h1>Welcome Back!</h1>
-
-
-        <TextField
-          id = "outlined-basic"
-          sx = {{color: "main"}}
-          margin= "normal"
-          variant="outlined"
-          value= {email}
-          label="E-mail"
-          onChange={(e) => setEmail(e.target.value)}
-          />
-
-
-        <FormControl variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-            <OutlinedInput
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              id="outlined-adornment-password"
-              type={showPassword ? 'text' : 'password'}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                  </InputAdornment>
-                  }
-                  label="Password"
-                />
-        </FormControl>
-
+      <div className="logRight">
+        <img className="logPhoto" src="https://images.unsplash.com/photo-1666305132656-097bd699e023?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Wedding Planning"/>
       </div>
-
-      <div className="loginInput">
-        <Button variant="contained" type="submit">LOGIN</Button>
-        {success ? (
-                nav('/')
-              ) : (
-                
-                <p className="warnP"></p>
-              )}
-        {error ? <label className="loginErr">{error}</label>: null}
-
-
-        <p className="loginP">Don’t have an account yet? <Link className="registerLink" to="/users/register">Sign up now!</Link></p> 
-      </div>
-
 
       
 
-    
-    </form>
-  
-  </div>
+      <form className="loginForm" onSubmit={handleSubmit}>
+        <div className="loginInputs">
+
+          <h1>Welcome Back!</h1>
+
+
+          <TextField
+            id = "outlined-basic"
+            sx = {{color: "main"}}
+            margin= "normal"
+            variant="outlined"
+            value= {email}
+            label="E-mail"
+            onChange={(e) => setEmail(e.target.value)}
+            />
+
+
+          <FormControl variant="outlined">
+            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+              <OutlinedInput
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                id="outlined-adornment-password"
+                type={showPassword ? 'text' : 'password'}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                    </InputAdornment>
+                    }
+                    label="Password"
+                  />
+          </FormControl>
+
+        </div>
+
+        <div className="loginInput">
+          <Button variant="contained" type="submit">LOGIN</Button>
+          {success ? (
+                  nav('/')
+                ) : (
+                  
+                  <p className="warnP"></p>
+                )}
+          {error ? <label className="loginErr">{error}</label>: null}
+
+
+          <p className="loginP">Don’t have an account yet? <Link className="registerLink" to="/users/register">Sign up now!</Link></p> 
+        </div>
+
+
+        
+
+      
+      </form>
+
+              
+    </div>
+    <Footer/>
+  </>
 )
 }
 

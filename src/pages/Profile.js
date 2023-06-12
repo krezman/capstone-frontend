@@ -2,6 +2,7 @@ import React from "react";
 import '../App.css'
 import { useParams } from "react-router-dom";
 import ProfilePosts from "../components/ProfilePosts";
+import Footer from "../components/Footer";
 
 
 const Profile = (props) => {
@@ -70,7 +71,7 @@ const Profile = (props) => {
     </div>
 
     
-
+    <Footer/>
   </div>
   )
     }

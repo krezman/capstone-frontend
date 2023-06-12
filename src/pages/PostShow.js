@@ -5,6 +5,7 @@ import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 import { Button, TextField } from "@mui/material";
+import Footer from "../components/Footer";
 
 
 const PostShow = (props) => {
@@ -150,6 +151,8 @@ if ((specifPost && props.user !== null) && (specifPost.post_owner.id === props.u
       
     </div>
 
+    <Footer/>
+
     </section>
   )
 } else if (specifPost && props.user !== null) {
@@ -160,23 +163,26 @@ if ((specifPost && props.user !== null) && (specifPost.post_owner.id === props.u
 
 
   return (
-    <div className="postShowBox">
-      <div className="postShowUser">
-        <Link to={`/users/${specifPost.post_owner.id}`}>
-          <h2>{specifPost.post_owner.username}</h2>
-        </Link>
-      </div>
-
-      <img className="postImgShow" src={specifPost.photo} alt={specifPost.post_owner.username}/>
-
-      <div className="text">
-        <div className="postShowText">
-          <span>{date}</span>
-          <h3>{specifPost.text}</h3>
+    <>
+      <div className="postShowBox">
+        <div className="postShowUser">
+          <Link to={`/users/${specifPost.post_owner.id}`}>
+            <h2>{specifPost.post_owner.username}</h2>
+          </Link>
         </div>
+
+        <img className="postImgShow" src={specifPost.photo} alt={specifPost.post_owner.username}/>
+
+        <div className="text">
+          <div className="postShowText">
+            <span>{date}</span>
+            <h3>{specifPost.text}</h3>
+          </div>
+        </div>
+        
       </div>
-      {/* <p>{specifPost.date_created}</p> */}
-    </div>
+      <Footer/>
+    </>
   )
   }
 }

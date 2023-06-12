@@ -1,6 +1,7 @@
 import React from "react";
 import '../App.css'
 import Post from "./Post";
+import Footer from "./Footer";
 
 
 const loading = () => {
@@ -25,9 +26,12 @@ const loaded = (postData) => {
 const Posts = ({postData}) => {
    
   return (
-    <div className="posts">
-      {postData !== null ? loaded(postData) : loading()}
-    </div>
+    <>
+      <div className="posts">
+        {postData !== null ? loaded(postData) : loading()}
+      </div>
+      <Footer/>
+    </>
   )
 }
 
