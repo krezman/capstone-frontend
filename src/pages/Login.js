@@ -115,7 +115,7 @@ return(
         {error ? <label className="loginErr">{error}</label>: null}
 
 
-        <p className="loginP"><span className="spanP">Don’t have an account yet?</span> <Link className="registerLink" to="/users/register">Sign up now</Link></p> 
+        <p className="loginP">Don’t have an account yet? <Link className="registerLink" to="/users/register">Sign up now!</Link></p> 
       </div>
 
 

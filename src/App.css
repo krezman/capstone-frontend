@@ -10,9 +10,10 @@
 
 /* https://i.imgur.com/DB5PFUc.png */
 .logo {
-  width: 450px;
+  width: 350px;
   height: auto;
   margin-left: 40px;
+  margin-top: 10px;
 }
 
 .rightNav {
@@ -20,26 +21,39 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
-  margin-top: 12px;
+  margin-top: 8px;
+}
+
+.firstPhoto {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.some {
+  overflow-x: hidden;
 }
 
 nav {
-  background-color: #f1f1e4;
-  /* box-shadow:
-  0 3px 2px rgba(0, 0, 0, 0.034),
-  0 6px 5px rgba(0, 0, 0, 0.048),
-  0 12px 10px rgba(0, 0, 0, 0.06),
-  0 22px 19px rgba(0, 0, 0, 0.072),
-  0 42px 33px rgba(0, 0, 0, 0.086),
-  0 100px 80px rgba(0, 0, 0, 0.12)
-; */
-box-shadow: 1px 2px 8px 2px #bfbdbd;
+  background-color: rgba(159,159,135, .3);
+  box-shadow: 1px 2px 8px 2px #bfbdbd;
 }
 
 .navMain {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.menuBtn {
+  margin-left: 80%;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
 }
 
 .option {
@@ -76,10 +90,58 @@ box-shadow: 1px 2px 8px 2px #bfbdbd;
   width: 100%;
 }
 
+/* Home Page */
+.homePage {
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.topHome {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: 'Comfortaa', cursive;
+}
+
+
 .topHomePhoto {
-  width: 800px;
+  width: 900px;
   height: auto;
-  float: right;
+  object-fit: cover;
+  /* box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+; */
+box-shadow: 6px 10px 10px 2px #4d4b4b;
+}
+
+.firstHeader {
+  font-size: 40px;
+  color: #114355;
+}
+
+.firstLine {
+  font-size: 40px;
+  margin-right: 15px;
+  margin-top: 80px;
+  color: #114355;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%
+}
+
+.box1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 /* login Page */
@@ -253,6 +315,7 @@ box-shadow: 1px 2px 8px 2px #bfbdbd;
   width: 300px;
   box-shadow: 1px 2px 8px 2px #bfbdbd;
   border-radius: 20px;
+  object-fit: cover;
 }
 
 .postImg:hover {
