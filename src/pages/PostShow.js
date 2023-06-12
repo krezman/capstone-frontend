@@ -24,6 +24,7 @@ const PostShow = (props) => {
     setInfo(response)
  }, [])
 
+
  useEffect(() => {
   if (specifPost) {
     setEditForm(specifPost)
@@ -71,10 +72,15 @@ const PostShow = (props) => {
    const handleToggle = () => {
     setToggle(!toggle)
    };
-
   
 
 if ((specifPost && props.user !== null) && (specifPost.post_owner.id === props.user.id)) {
+  const dateArray = specifPost.date_created.split('')
+  const newDateArray = dateArray.splice(16, 13)
+  const refinedDate = dateArray.splice(7, 4)
+  const date = dateArray.join('')
+
+
   return(
     <section className="postShowPage">
 
@@ -89,6 +95,7 @@ if ((specifPost && props.user !== null) && (specifPost.post_owner.id === props.u
 
         <div className="text">
           <div className="postShowText">
+            <span>{date}</span>
             <h2>{specifPost.text}</h2>
           </div>
         </div>
@@ -146,6 +153,12 @@ if ((specifPost && props.user !== null) && (specifPost.post_owner.id === props.u
     </section>
   )
 } else if (specifPost && props.user !== null) {
+  const dateArray = specifPost.date_created.split('')
+  const newDateArray = dateArray.splice(16, 13)
+  const refinedDate = dateArray.splice(7, 4)
+  const date = dateArray.join('')
+
+
   return (
     <div className="postShowBox">
       <div className="postShowUser">
@@ -158,6 +171,7 @@ if ((specifPost && props.user !== null) && (specifPost.post_owner.id === props.u
 
       <div className="text">
         <div className="postShowText">
+          <span>{date}</span>
           <h3>{specifPost.text}</h3>
         </div>
       </div>

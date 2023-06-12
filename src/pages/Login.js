@@ -54,8 +54,7 @@ const Login = (props) => {
   }
 
 return(
-  <div className="loginBody">
-  <section className="login">
+  <div className="login">
 
     <div className="logRight">
       <img className="logPhoto" src="https://images.unsplash.com/photo-1666305132656-097bd699e023?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Wedding Planning"/>
@@ -124,7 +123,7 @@ return(
 
     
     </form>
-  </section>
+  
   </div>
 )
 }

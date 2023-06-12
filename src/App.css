@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
-main {
+/* main {
   background-color: #f1f1e4;
-  height: 100%;
-}
+  height: 110%;
+} */
 
 
 /* Nav Bar */
@@ -265,9 +265,15 @@ nav {
   width: 50%;
 }
 
+span {
+  display: flex;
+  justify-content: end;
+}
+
 .postShowText {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .postEdit {
@@ -328,6 +334,7 @@ nav {
   background: white;
   border-radius: 20px;
   margin: 5% auto;
+  background-color: rgba(141, 170, 145, .8)
 }
 
 .profileLeft {
