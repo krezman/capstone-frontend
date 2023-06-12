@@ -15,60 +15,61 @@ const Header = (props) => {
           </Link>
         </div>
 
+        <div className="rightNav">
+          {props.user ? 
+            null
+            : 
+            <div>
+                <Link className="option" to="/users/register">         
+                    <h1 className="options">Sign up</h1> 
+                </Link>
+              </div>
+            }
+            
+            {props.user ? 
+            null
+            : 
+              <div>
+                <Link className="option" to="/users/login">    
+                    <h1 className="options">Login</h1>      
+                </Link>
+              </div>
+            }
+            
+            {props.user ? 
+              <div>
+                <Link className="option" to="/posts/index">         
+                    <h1 className="options">Feed</h1>
+                </Link>
+              </div>
+            : null
+            }
 
-        {props.user ? 
-          null
-          : 
-          <div>
-              <Link className="option" to="/users/register">         
-                  <h1>Sign up</h1> 
-              </Link>
-            </div>
-          }
-          
-          {props.user ? 
-          null
-          : 
-            <div>
-              <Link className="option" to="/users/login">    
-                  <h1>Login</h1>      
-              </Link>
-            </div>
-          }
-          
-          {props.user ? 
-            <div>
-              <Link className="option" to="/posts/index">         
-                  <h1>Feed</h1>
-              </Link>
-            </div>
-          : null
-          }
+            {props.user ? 
+              <div>
+                <Link className="option" to="/posts/create">
+                    <h1 className="options">Create Post</h1>
+                </Link>
+              </div>
+            : null
+            }
 
-          {props.user ? 
-            <div>
-              <Link className="option" to="/posts/create">
-                  <h1>Create Post</h1>
-              </Link>
-            </div>
-          : null
-          }
+            {props.user ? 
+              <div>
+                <Link className="option" to={`users/${props.user.id}`}>
+                    <h1 className="options">Profile</h1>
+                </Link>
+              </div>
+            : null
+            }
 
-          {props.user ? 
-            <div>
-              <Link className="option" to={`users/${props.user.id}`}>
-                  <h1>Profile</h1>
-              </Link>
-            </div>
-          : null
-          }
-
-          {props.user ? 
-            <div>
-              <Logout/>
-            </div>
-          : null
-          }
+            {props.user ? 
+              <div className="logoutBtn">
+                <Logout/>
+              </div>
+            : null
+            }
+          </div>
 
 
 

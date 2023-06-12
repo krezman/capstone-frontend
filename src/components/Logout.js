@@ -1,6 +1,7 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { Button } from "@mui/material";
 
 const Logout = (props) => {
   const nav = useNavigate()
@@ -29,7 +30,7 @@ const Logout = (props) => {
 
   return(
     <form className="loginForm" onSubmit={handleSubmit}>
-    <button className="loginButton" type="submit">LOGOUT</button>
+    <Button color="secondary" variant="contained" type="submit">LOGOUT</Button>
 
     </form>
   )

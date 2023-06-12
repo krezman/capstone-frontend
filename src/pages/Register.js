@@ -78,7 +78,7 @@ const Register = (props) => {
 
 return(
     <div className="regPage">
-      <h2 className="regHeader">Please fill out this form to begin making and viewing content.</h2>
+      <p className="regHeader">Please fill out this form to begin making and viewing content.</p>
       <div className="regBox">
         <div className="regRight">
           <img className="regPhoto" src="https://images.unsplash.com/photo-1606104218551-2c2ad1231dc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" alt="Florist"/>
