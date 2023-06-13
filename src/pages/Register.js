@@ -31,6 +31,7 @@ const Register = (props) => {
   const [error, setError] = useState("")
   const URI = `${process.env.REACT_APP_API_URI}`
 
+
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -64,6 +65,7 @@ const Register = (props) => {
       setSuccess(true);
       console.log(results.data.data)
       props.setUser(results.data.data)
+      props.getProfileData()
     })
     .catch((error) => {
       const fail = (error.response.data.message)

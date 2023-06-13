@@ -1,6 +1,6 @@
 import React from "react";
 import '../App.css'
-import { useParams } from "react-router-dom";
+import { useParams, useEffect } from "react-router-dom";
 import ProfilePosts from "../components/ProfilePosts";
 import Footer from "../components/Footer";
 
@@ -10,6 +10,8 @@ const Profile = (props) => {
   const id = parseInt(params.id)
   const prof = props.profileData
   const person = prof.find((user) => user.id === id)
+
+
   
   
 
@@ -45,7 +47,7 @@ const Profile = (props) => {
     <div className="profileTop">
       <div className="profileLeft">
         <h1>{person.vendor_name}</h1>
-        <img src={person.profile_photo} alt={person.username}/>
+        <img className="profilePhoto" src={person.profile_photo} alt={person.username}/>
         <div>
           <h3>Location:</h3>
           <h2>{person.location}</h2>

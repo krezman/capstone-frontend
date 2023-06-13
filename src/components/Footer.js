@@ -21,7 +21,7 @@ function Footer() {
                         <li>Photographers</li><br></br>
                         <li>Floral Designers</li><br></br>
                         <li>Officiants</li><br></br>
-                        <li>About</li><br></br>
+                        <Link to="/about" className='moreInfo'><li>About</li><br></br></Link>
                         <li>Contact</li><br></br>
                     </ul>
                 </div>

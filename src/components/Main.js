@@ -10,6 +10,7 @@ import Logout from "./Logout";
 import PostCreate from "../pages/PostCreate";
 import '../App.css';
 import Header from "./Header";
+import About from "../pages/About";
 import { green, red } from "@mui/material/colors";
 import { ThemeProvider, createTheme } from '@mui/material';
 
@@ -40,6 +41,7 @@ const [user, setUser] = useState()
 const [postData, setPostData] = useState(null)
 const [onePostData, setOnePostData] = useState(null)
 const [profileData, setProfileData] = useState(null)
+console.log(profileData)
 
 const getPostData = async() => {
   try {
@@ -148,8 +150,8 @@ return (
       profileData={profileData}
       postData={postData}/>}/>
 
-      <Route path="/users/register" element=
-      {<Register setUser={setUser}/>}/>
+      <Route path="/users/register"
+      element={<Register setUser={setUser} getProfileData={getProfileData}/>}/>
 
       <Route path= "/users/login" element=
       {<Login postData={postData} setUser={setUser}/>}/>
@@ -158,6 +160,7 @@ return (
       {<Logout setUser={setUser}/>}/>
 
       <Route path="/" element={<Home user={user}/>}/>
+      <Route path="/about" element={<About/>}/>
     </Routes>
   </main>
 </ThemeProvider>

@@ -159,6 +159,19 @@ nav {
   margin-left: 50px;
 }
 
+.moreInfo {
+  text-decoration: none;
+  color: black;
+}
+
+.secondLinePlus {
+  font-size: 40px;
+  margin-right: 50px;
+  margin-top:5%;
+  color: white;
+  margin-left: 50px;
+}
+
 
 .homeBottom {
   margin-top: 3%;
@@ -189,6 +202,7 @@ nav {
   flex-wrap: wrap;
   padding: 50px 50px 0 50px;
   background-color:  rgba(141, 170, 145, .5);
+  margin-bottom: -80px;
 }
 
 .job {
@@ -201,9 +215,6 @@ nav {
   opacity: 0;
 }
 
-.jobCard {
-  margin-bottom: -1.5%;
-}
 
 .jobCard:hover .front {
   opacity: .5;
@@ -216,6 +227,11 @@ nav {
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+.canvas {
+  font-size: 25px;
+  text-align: center;
 }
 
 
@@ -530,6 +546,12 @@ span {
   font-size: 20px;
 }
 
+.profilePhoto {
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+}
+
 .profilePostsTitle {
   margin-left: 5%;
   font-family: 'Comfortaa', cursive;
@@ -549,6 +571,7 @@ span {
 }
 
 .footer {
+  margin-top: 80px;
   height: 150px;
   color:black;
   border-top-left-radius: 800%;
@@ -578,4 +601,32 @@ span {
   width:350px;
   position:relative;
   left:72%;
+}
+
+
+/* About Page */
+.aboutPage {
+  font-family: 'Comfortaa', cursive;
+  margin-top: 2%;
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.aboutHead {
+  margin-left: 6%;
+}
+
+.rant {
+  font-size: 30px;
+  margin-right: 100px;
+  margin-left: 6%;
+}
+
+.aboutImg {
+  width: 900px;
+  height: auto;
 }

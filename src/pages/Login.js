@@ -118,6 +118,7 @@ return(
 
 
           <p className="loginP">Don’t have an account yet? <Link className="registerLink" to="/users/register">Sign up now!</Link></p> 
+
         </div>
 
 

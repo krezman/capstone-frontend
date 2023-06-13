@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import Footer from '../components/Footer';
+import ReadMoreRoundedIcon from '@mui/icons-material/ReadMoreRounded';
 
 const Home = () => {
   useEffect(() => {
@@ -51,6 +52,9 @@ const Home = () => {
               <p className='secondLine'>
                 We Are Looking for everyone with a talent and yearning to make all of out clients special day that much more of a dream come true.
               </p>
+              <p className='secondLinePlus'>
+                Read a little more about us here<Link className='moreInfo' to="/about" onClick={() => window.scrollTo(0, 0)}><ReadMoreRoundedIcon sx={{fontSize: "50px"}}/></Link>
+              </p>
             </div>
           </div>
         </div>
@@ -93,6 +97,8 @@ const Home = () => {
               </div>
               
         </div>
+
+        <h3 className="canvas">Are you one of these? <Link className="registerLink" to="/users/register" onClick={() => window.scrollTo(0, 200)}>Sign up now!</Link></h3>
 
       </section>
 
